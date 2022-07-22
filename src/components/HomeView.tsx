@@ -10,6 +10,7 @@ import { RootState } from '../redux/store';
 import ShowMessage from './ShowMessage';
 import { setLoading, setMsg, setStatusCode } from '../redux/reducers/authReducers';
 import { useEffect } from 'react';
+import { Image, Text } from '@nextui-org/react';
 
 const DynamicClock = dynamic(() => import('./Clock'), {
   ssr: false,
@@ -41,6 +42,13 @@ const HomeView = () => {
       <AuthBar />
       <AppFeatureCard />
       <DynamicClock />
+      <div style={{display:"flex",justifyContent:"center",color:"white",alignItems:"center"}} >
+      <a href="https://github.com/seen2/next-ts-todo">
+        Find Source Code at: <Text size={"xl"} color="success" >{"<Code></Code>"}</Text>
+        <Image src='https://img.icons8.com/ios-glyphs/452/github.png' alt='source code' height={"50px"} width={"50px"} /> 
+      </a>
+      
+      </div>
     </div>
 
   )

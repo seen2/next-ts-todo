@@ -1,0 +1,11 @@
+.auth {
+
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color: rgb(18, 18, 45);
+  padding: 18px;
+  border-radius: 0.7rem;
+  color: azure;
+
+}

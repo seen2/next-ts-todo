@@ -1,0 +1,1 @@
+#This folder for implimenting pure logic

@@ -29,7 +29,7 @@ const Todos: NextPage = (): JSX.Element => {
 
     (async () => await (dispatch(onGetTodos())))();
 
-  }, [createNewTodo])
+  }, [createNewTodo,dispatch])
 
   return (
 

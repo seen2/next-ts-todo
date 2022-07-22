@@ -26,7 +26,7 @@ const Login: NextPage = () => {
     if (window.localStorage.getItem("userAuthToken") && _id) {
       router.push("/todos");
     }
-  }, [statusCode, msg, message])
+  }, [statusCode, msg, message,_id,router])
 
   const onClickLogiin = async () => {
     if (email && password) {
@@ -67,7 +67,7 @@ const Login: NextPage = () => {
       {loading ? <Loading type="points">Please wait</Loading> : <Button onPress={() => onClickLogiin()} >Login </Button>}
       {/* <Link href={"/todos"}></Link> */}
       <div style={{ textAlign: "center", color: "grey" }}>
-        <p>Don't have a account? </p>
+        <p>Don{"'"}t have a account? </p>
       </div>
       <Link href={"/auth/Register"}><Button disabled={loading || Boolean(email)}  >Sign Up</Button></Link>
       <br />

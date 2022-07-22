@@ -32,7 +32,7 @@ const HomeView = () => {
       }, 3000);
 
     }
-  }, [])
+  }, [statusCode, msg,dispatch ])
 
 
   return (

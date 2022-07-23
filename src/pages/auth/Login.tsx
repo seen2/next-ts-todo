@@ -64,7 +64,7 @@ const Login: NextPage = () => {
         placeholder={"******"}
       />
       <br />
-      {loading ? <Loading type="points">Please wait</Loading> : <Button onPress={() => onClickLogiin()} >Login </Button>}
+      {loading ? <Loading type="points">Please wait</Loading> : <Button disabled={!Boolean(email&&password)} onPress={() => onClickLogiin()} >Login </Button>}
       {/* <Link href={"/todos"}></Link> */}
       <div style={{ textAlign: "center", color: "grey" }}>
         <p>Don{"'"}t have a account? </p>

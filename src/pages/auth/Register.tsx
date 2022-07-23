@@ -22,50 +22,47 @@ const Register: NextPage = () => {
   const [validInput, setValidInput] = useState(true);
   const router = useRouter();
 
+  
+
+  
   useEffect(() => {
-    setValidInput(validateInput());
     if (_id && window.localStorage.getItem("userAuthToken")) {
       router.push("/todos");
     }
-  }, [name, email, password])
-
-  const validateInput = () => {
-    const namePattern = /\w{3,} \w{3,}/;
-    const emailPattern = /\w+\@\w+\.\w+/;
-    const passwordPattern = /\w{6,}/;
-    const newMessage = { ...message };
-
-    let flag = true;
-
-
-    if (flag) {
-      if (!namePattern.test(name + "")) {
-        newMessage.nameMessage = "Name Must include three Character in First and Last Name";
-        flag = false;
-      } else {
-        newMessage.nameMessage = "";
+    const validateInput = () => {
+      const namePattern = /\w{3,} \w{3,}/;
+      const emailPattern = /\w+\@\w+\.\w+/;
+      const passwordPattern = /.{6,}/;
+      const newMessage = { ...message };
+      let flag = true;
+      if (flag) {
+        if (!namePattern.test(name + "")) {
+          newMessage.nameMessage = "Name Must include three Character in First and Last Name";
+          flag = false;
+        } else {
+          newMessage.nameMessage = "";
+        }
+        if (!emailPattern.test(email + "")) {
+          newMessage.emailMessage = "Email should be correctly formated";
+          flag = false;
+        } else {
+          newMessage.emailMessage = "";
+        }
+        if (!passwordPattern.test(password + "")) {
+          newMessage.passwordMessage = "Password should be of 6 characters";
+          flag = false;
+        } else {
+          newMessage.passwordMessage = "";
+        }
+  
       }
-      if (!emailPattern.test(email + "")) {
-        newMessage.emailMessage = "Email should be correctly formated";
-        flag = false;
-      } else {
-        newMessage.emailMessage = "";
-      }
-      if (!passwordPattern.test(password + "")) {
-        newMessage.passwordMessage = "Password should be of 6 characters";
-        flag = false;
-      } else {
-        newMessage.passwordMessage = "";
-      }
-
+      // console.log("valid", flag, message)
+      setMessage(newMessage);
+      return flag;
     }
-    // console.log("valid", flag, message)
-    setMessage(newMessage);
-
-    return flag;
-
-
-  }
+  
+    setValidInput(validateInput());
+  }, [name, email, password,_id,setValidInput,router,message]);
 
   const onClickCreateAccount = async () => {
 

@@ -64,7 +64,7 @@ const Register: NextPage = () => {
       setValidInput(validateInput());
     }
     
-  }, [setValidInput,router]);
+  }, [name,email,password,setValidInput,router]);
 
   const onClickCreateAccount = async () => {
 

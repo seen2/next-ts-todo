@@ -19,26 +19,11 @@ const DynamicClock = dynamic(() => import('./Clock'), {
 const HomeView = () => {
 
   const { statusCode, msg } = useAppSelector((state: RootState) => state.auth);
-  const dispatch = useAppDispatch();
-
-  useEffect(() => {
-
-
-    return () => {
-      setTimeout(() => {
-        dispatch(setMsg(""));
-        dispatch(setStatusCode(200))
-
-      }, 3000);
-
-    }
-  }, [statusCode, msg,dispatch ])
-
 
   return (
     <div >
       <HomeLogo />
-      {statusCode !== 200 && <ShowMessage message={msg + ""} statusCode={statusCode || 200} />}
+      {statusCode !== 200 && <ShowMessage message={"Success"} statusCode={statusCode || 200} />}
       <AuthBar />
       <AppFeatureCard />
       <DynamicClock />

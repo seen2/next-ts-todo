@@ -8,7 +8,7 @@ import Link from 'next/link';
 export default function AuthBar() {
   return (
     <div className={styles.flexBox}>
-      <Link href={"/auth/Register"}><Button className={styles.flexItems}>Sign Up </Button></Link>
+      {!window.localStorage.getItem("userAuthToken") ? <Link href={"/auth/Register"}><Button className={styles.flexItems}>Sign Up </Button></Link>:null}
 
       <Link href={"/auth/Login"}><Button className={styles.flexItems}>Login</Button></Link>
     </div>

@@ -1,37 +1,48 @@
-import { Button, Checkbox } from '@nextui-org/react';
-import React, { useEffect } from 'react';
-import { TodoItem } from '../types/todo';
+import { Button, Checkbox } from "@nextui-org/react";
+import React, { useEffect } from "react";
+import { TodoItem } from "../types/todo";
 
 import styles from "../styles/components.module.css";
-import { useRouter } from 'next/router';
+import { useRouter } from "next/router";
 
-
-export default function TodoCard({ todo, index }: { todo: TodoItem, index: number }): JSX.Element {
-
+export default function TodoCard({
+  todo,
+  index,
+}: {
+  todo: TodoItem;
+  index: number;
+}): JSX.Element {
   const router = useRouter();
 
-  useEffect(() => { }, [todo]);
-
+  useEffect(() => {}, [todo]);
 
   return (
-
-    <div className={styles.card} >
-      <div >
-        <h4>{index + 1}. {todo.title.substring(0, 7 || "")}...</h4>
-        <Checkbox isDisabled={true} isSelected={Boolean(todo.isCompleted)} color="success"  >Completed</Checkbox>
-      </div>
-      <div className={styles.flexItems} >
+    <div className={styles.card}>
+      <h4 style={{ width: "60%", textAlign: "center" }}>
+        {index + 1}. {todo.title}
+        
+      </h4>
+      {/* <div className={styles.flexItems}>
         {todo.description.substring(0, 20 || "")}...
-      </div>
-      {/* <Link
-        href={`/todos/${todo._id}`}
-      >
-      </Link> */}
-      <Button onPress={() => router.push(`/todos/${todo._id}`)} bordered  >View</Button>
-    </div >
-  )
-}
+      </div> */}
+      <Checkbox
+      style={{ width: "30%" }}
+          isDisabled={true}
+          isSelected={Boolean(todo.isCompleted)}
+          color="success"
+        >
+          Completed
+        </Checkbox>
 
+      <Button
+        onPress={() => router.push(`/todos/${todo._id}`)}
+        bordered
+      >
+        View
+      </Button>
+    </div>
+  );
+}
 
 /*
 <div >
@@ -52,5 +63,3 @@ export default function TodoCard({ todo, index }: { todo: TodoItem, index: numbe
         <Button size={"sm"} color={"error"} >Delete</Button>
       </div>
 */
-
-

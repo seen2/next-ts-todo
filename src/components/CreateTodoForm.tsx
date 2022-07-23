@@ -35,7 +35,7 @@ export default function CreateTodoForm({ setCreateNewTodo, createNewTodo }: { se
     <div  >
       <Modal
         closeButton
-        style={{ backgroundColor: "rgb(18, 18, 45)", color: "white" }}
+        style={{ backgroundColor: "rgb(18, 18, 45)", color: "white",margin:"0.7rem" }}
         aria-labelledby="modal-title"
         open={createNewTodo}
         onClose={() => { }}
@@ -48,8 +48,9 @@ export default function CreateTodoForm({ setCreateNewTodo, createNewTodo }: { se
         <Modal.Body>
           <Input
             onChange={(event) => { setTitle(event.target.value) }}
-            value={title} status="primary" label='Title' style={{ width: 300 }}
+            value={title} status="primary" label='Title' 
             placeholder={"Enter Task Name"}
+            maxLength={20}
           />
           <Textarea
             onChange={(event) => { setDescription(event.target.value) }}

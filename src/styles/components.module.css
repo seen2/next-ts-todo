@@ -54,7 +54,8 @@
 .card {
   margin: 0.7rem;
   display: flex;
-  width: 70%;
+  width: 100%;
+  height: max-content;
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-around;

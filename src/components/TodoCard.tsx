@@ -18,15 +18,11 @@ export default function TodoCard({
 
   return (
     <div className={styles.card}>
-      <h4 style={{ width: "60%", textAlign: "center" }}>
-        {index + 1}. {todo.title}
-        
-      </h4>
-      {/* <div className={styles.flexItems}>
-        {todo.description.substring(0, 20 || "")}...
-      </div> */}
+      <div style={{width:"60%"}} >
+      {index + 1}. {todo.title}
+      </div>
+      <br/>
       <Checkbox
-      style={{ width: "30%" }}
           isDisabled={true}
           isSelected={Boolean(todo.isCompleted)}
           color="success"

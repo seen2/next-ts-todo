@@ -23,46 +23,48 @@ const Register: NextPage = () => {
   const router = useRouter();
 
   
+  const validateInput = () => {
+    const namePattern = /\w{3,} \w{3,}/;
+    const emailPattern = /\w+\@\w+\.\w+/;
+    const passwordPattern = /.{6,}/;
+    const newMessage = { ...message };
+    let flag = true;
+    if (flag) {
+      if (!namePattern.test(name + "")) {
+        newMessage.nameMessage = "Name Must include three Character in First and Last Name";
+        flag = false;
+      } else {
+        newMessage.nameMessage = "";
+      }
+      if (!emailPattern.test(email + "")) {
+        newMessage.emailMessage = "Email should be correctly formated";
+        flag = false;
+      } else {
+        newMessage.emailMessage = "";
+      }
+      if (!passwordPattern.test(password + "")) {
+        newMessage.passwordMessage = "Password should be of 6 characters";
+        flag = false;
+      } else {
+        newMessage.passwordMessage = "";
+      }
 
+    }
+    // console.log("valid", flag, message)
+    setMessage(newMessage);
+    return flag;
+  }
   
   useEffect(() => {
-    if (_id && window.localStorage.getItem("userAuthToken")) {
+    if (window.localStorage.getItem("userAuthToken")) {
       router.push("/todos");
+    }else{
+      
+    
+      setValidInput(validateInput());
     }
-    const validateInput = () => {
-      const namePattern = /\w{3,} \w{3,}/;
-      const emailPattern = /\w+\@\w+\.\w+/;
-      const passwordPattern = /.{6,}/;
-      const newMessage = { ...message };
-      let flag = true;
-      if (flag) {
-        if (!namePattern.test(name + "")) {
-          newMessage.nameMessage = "Name Must include three Character in First and Last Name";
-          flag = false;
-        } else {
-          newMessage.nameMessage = "";
-        }
-        if (!emailPattern.test(email + "")) {
-          newMessage.emailMessage = "Email should be correctly formated";
-          flag = false;
-        } else {
-          newMessage.emailMessage = "";
-        }
-        if (!passwordPattern.test(password + "")) {
-          newMessage.passwordMessage = "Password should be of 6 characters";
-          flag = false;
-        } else {
-          newMessage.passwordMessage = "";
-        }
-  
-      }
-      // console.log("valid", flag, message)
-      setMessage(newMessage);
-      return flag;
-    }
-  
-    setValidInput(validateInput());
-  }, [name, email, password,_id,setValidInput,router,message]);
+    
+  }, [setValidInput,router]);
 
   const onClickCreateAccount = async () => {
 
@@ -119,7 +121,7 @@ const Register: NextPage = () => {
       <div style={{ textAlign: "center", color: "grey" }}>
         <p>Already have a account? </p>
       </div>
-      <Link href={"/auth/Login"}><Button>Sign In</Button></Link>
+      <Button onClick={()=>router.push("/auth/Login")} >Sign In</Button>
       <Spacer y={0.9} />
       {((msg !== "" && msg !== null)) && <div>
         <ShowMessage statusCode={statusCode || 400} message={msg} />

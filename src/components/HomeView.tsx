@@ -11,6 +11,8 @@ import ShowMessage from './ShowMessage';
 import { useEffect, useState } from 'react';
 import { Image, Text } from '@nextui-org/react';
 
+import styles from "../styles/components.module.css";
+
 const DynamicClock = dynamic(() => import('./Clock'), {
   ssr: false,
 })
@@ -28,8 +30,8 @@ const HomeView = () => {
       setUsers(names.sort());
     }
     
+    fetchUser();
     return ()=>{
-      fetchUser();
     }
   },[])
 
@@ -50,14 +52,10 @@ const HomeView = () => {
       
       </div>
       <div 
-      style={{
-        display:"flex",justifyContent:"center",
-        color:"white",alignItems:"center",
-        flexWrap:"wrap",flexDirection:"column",
-        backgroundColor:"#1a1a1a",
-        padding:"0.7rem",
-        borderRadius:"0.7rem"
-        }}  >
+      className={
+        styles.card
+      }
+        >
         {users.map((user,i)=><Text color='white' size={"30px"} key={i} >{i+1}. {user}, Thank You for Using.</Text>)}
       </div>
     </div>

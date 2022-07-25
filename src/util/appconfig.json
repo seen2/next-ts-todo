@@ -1,5 +1,0 @@
-{
-  "uri": "mongodb+srv://sintu:Sintu123@cluster0.ya55t3e.mongodb.net/todo-next?retryWrites=true&w=majority",
-  "jwtKey": "jsonwebtokenkey",
-  "bcryptSaltRounds": 10
-}

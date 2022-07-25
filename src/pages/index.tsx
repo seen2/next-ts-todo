@@ -4,7 +4,10 @@ import HomeView from '../components/HomeView';
 
 
 
+
+
 const Home: NextPage = () => {
+
 
   return (
     <HomeView />

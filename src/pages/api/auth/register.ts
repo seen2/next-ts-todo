@@ -3,7 +3,7 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
 import isDBConnected from "../../../util/connectDB";
-import { bcryptSaltRounds, jwtKey } from "../../../util/appconfig.json";
+import { bcryptSaltRounds, jwtKey } from "../../../util/appconfig";
 import User from '../../../models/User';
 
 type Data = {

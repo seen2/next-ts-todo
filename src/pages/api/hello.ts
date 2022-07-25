@@ -9,6 +9,14 @@ export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
+
   
-  res.status(200).json({ name: 'John Doe' })
+  res.status(200).json({ name: 'John Doe' });
+}
+
+export const environmentVariables={
+  uri:process.env.DB_URI,
+  jwtKey:process.env.JWT_KEY,
+  bcryptSaltRounds:process.env.BCRYPT_SALT_ROUNDS
+
 }

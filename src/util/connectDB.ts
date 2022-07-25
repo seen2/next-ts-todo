@@ -1,6 +1,6 @@
 import { connect } from 'mongoose';
 
-import { uri } from "./appconfig.json";
+import { uri } from "./appconfig";
 export default async function isDBconnected() {
   let connected: boolean = false;
   try {

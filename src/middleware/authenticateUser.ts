@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import jwt from "jsonwebtoken";
 
-import { jwtKey } from "../util/appconfig.json";
+import { jwtKey } from "../util/appconfig";
 
 const authenticateUser = (handler: Function): Function => (req: NextApiRequest, res: NextApiResponse): Promise<void> => {
 

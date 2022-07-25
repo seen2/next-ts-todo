@@ -2,7 +2,7 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
-import { jwtKey } from "../../../util/appconfig.json";
+import { jwtKey } from "../../../util/appconfig";
 import User from '../../../models/User';
 import isDBConnected from "../../../util/connectDB";
 

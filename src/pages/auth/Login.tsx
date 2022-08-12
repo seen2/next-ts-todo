@@ -4,8 +4,8 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 
-import HomeLogo from '../../components/HomeLogo';
-import ShowMessage from '../../components/ShowMessage';
+import HomeLogo from '../../pagecomponents/HomeLogo';
+import ShowMessage from '../../pagecomponents/ShowMessage';
 import { onLogin } from '../../redux/actionCreators/authActions';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { emailChange, passwordChange } from '../../redux/reducers/authReducers';
@@ -69,7 +69,7 @@ const Login: NextPage = () => {
       <div style={{ textAlign: "center", color: "grey" }}>
         <p>Don{"'"}t have a account? </p>
       </div>
-      <Link href={"/auth/Register"}><Button disabled={loading || Boolean(email)}  >Sign Up</Button></Link>
+      <Link href={"/auth/Register"}><Button>Sign Up</Button></Link>
       <br />
       {((msg !== "" && msg !== null) || message !== "") && <div>
         <ShowMessage statusCode={statusCode || 400} message={msg || message} />

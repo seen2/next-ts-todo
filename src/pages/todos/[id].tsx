@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
 
-import TodoDetailForm from '../../components/TodoDetailForm';
+import TodoDetailForm from '../../pagecomponents/TodoDetailForm';
 import { useRouter } from 'next/router';
 import { useAppSelector } from '../../redux/hooks';
 import { TodoItem } from '../../types/todo';

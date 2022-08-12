@@ -40,7 +40,7 @@ export default async function handler(
                   const usercreated = await new User(newUser);
                   const response = await usercreated.save();
                   result = response ? await User.find({ email }) : null;
-                  const token: string | null = result.length ? jwt.sign({ user: { _id: result[0]._id, email: result[0].email } }, jwtKey, { expiresIn: 24 * 3600 }) : null;
+                  const token: string | null = result.length ? jwt.sign({ user: { _id: result[0]._id, email: result[0].email } }, jwtKey) : null;
                   res.status(200).json({ msg: 'Success', token, userId: result[0]._id });
                 } else {
                   throw new Error('User already Exist');

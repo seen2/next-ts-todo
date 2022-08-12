@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
 
-import HomeView from '../components/HomeView';
+import HomeView from '../pagecomponents/HomeView';
 
 
 

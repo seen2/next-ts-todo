@@ -30,7 +30,7 @@ export default async function handler(
             const validPassword: boolean = result.length >= 1 ? await bcrypt.compare(password, result[0].password) : false;
 
             if (result.length && validPassword) {
-              const token: string = jwt.sign({ user: { _id: result[0]._id, email: result[0].email } }, jwtKey, { expiresIn: 24 * 3600 });
+              const token: string = jwt.sign({ user: { _id: result[0]._id, email: result[0].email } }, jwtKey);
               res.status(200).json({ msg: 'Success', token, userId: result[0]._id });
             } else {
               if (result.length !== 1) {

@@ -2,10 +2,10 @@ import type { NextPage } from "next";
 
 import React, { useEffect, useState } from "react";
 import styles from "../../styles/components.module.css";
-import TodoCard from "../../components/TodoCard";
+import TodoCard from "../../pagecomponents/TodoCard";
 import { TodoItem } from "../../types/todo";
-import CreateTodoForm from "../../components/CreateTodoForm";
-import AppNavBar from "../../components/AppNavBar";
+import CreateTodoForm from "../../pagecomponents/CreateTodoForm";
+import AppNavBar from "../../pagecomponents/AppNavBar";
 import { RootState } from "../../redux/store";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { onGetTodos } from "../../redux/actionCreators/todoActions";
